@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gabungan Program JavaScript</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+    .box {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- JAM DIGITAL -->
+<h2>Jam Digital</h2>
+<div class="box">
+  <h2 id="jam"></h2>
+</div>
+
+<!-- MENGUBAH TEKS -->
+<h2>Mengubah Teks</h2>
+<div class="box">
+  <h3 id="judul">Halo, Selamat Datang!</h3>
+  <button onclick="ubahTeks()">Ubah Teks</button>
+</div>
+
+<!-- PENJUMLAHAN -->
+<h2>Penjumlahan Angka</h2>
+<div class="box">
+  <input type="number" id="angka1" placeholder="Angka 1"> +
+  <input type="number" id="angka2" placeholder="Angka 2">
+  <button onclick="jumlah()">Hitung</button>
+
+  <p>Hasil: <span id="hasil">0</span></p>
+</div>
+
+<!-- VALIDASI NAMA -->
+<h2>Validasi Nama</h2>
+<div class="box">
+  <form onsubmit="return cekNama()">
+    Masukkan Nama: <input type="text" id="nama">
+    <button type="submit">Kirim</button>
+  </form>
+</div>
+
+<!-- GANTI WARNA BACKGROUND -->
+<h2>Ganti Warna Background</h2>
+<div class="box">
+  <button onclick="ubahWarna('lightblue')">Biru</button>
+  <button onclick="ubahWarna('lightgreen')">Hijau</button>
+  <button onclick="ubahWarna('pink')">Pink</button>
+</div>
+
+<script>
+
+// JAM DIGITAL
+setInterval(function() {
+  let waktu = new Date().toLocaleTimeString();
+  document.getElementById("jam").innerHTML = waktu;
+}, 1000);
+
+// MENGUBAH TEKS
+function ubahTeks() {
+  document.getElementById("judul").innerHTML = "Teks sudah berubah!";
+}
+
+// PENJUMLAHAN
+function jumlah() {
+  let a = parseInt(document.getElementById("angka1").value);
+  let b = parseInt(document.getElementById("angka2").value);
+  document.getElementById("hasil").innerHTML = a + b;
+}
+
+// VALIDASI NAMA
+function cekNama() {
+  let nama = document.getElementById("nama").value;
+
+  if (nama === "") {
+    alert("Nama tidak boleh kosong!");
+    return false;
+  }
+
+  alert("Form berhasil dikirim!");
+  return true;
+}
+
+// GANTI WARNA BACKGROUND
+function ubahWarna(warna) {
+  document.body.style.backgroundColor = warna;
+}
+
+</script>
+
+</body>
+</html>
